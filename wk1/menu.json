@@ -1,0 +1,108 @@
+{
+    "appetizers": [
+        {
+            "name": "Mozzarella Sticks",
+            "ingredients": [
+                "mozzarella",
+                "sticks"
+            ],
+            "description": "Sticks with Cheese"
+        },
+        {
+            "name": "Artichoke Dip",
+            "ingredients": [
+                "arti",
+                "dip",
+                "chips"
+            ],
+            "description": "Lightly toasted tortilla chips with a smoothly blended Arti who has choked."
+        }
+    ],
+    "cold sandwiches": [
+        {
+            "name": "Iced Fish",
+            "ingredients": [
+                "fish",
+                "lemon icing",
+                "wheat buns"
+            ],
+            "description": "Flash frozen fish drizzeld in a lemon icing served on full stock wheat buns - not for the brittle of teeth! "
+        },
+        {
+            "name": "Caprese Sandwich",
+            "ingredients": [
+                "mozzerlla cheese",
+                "tomato",
+                "fresh basile",
+                "balsamic vinager",
+                "choice of bread"
+            ],
+            "description": " Fresh basile nestled between house made mozzerlla cheese and sunripend tomatoes, drizzled with blasamic vinager on fresh baked bread."
+        }
+    ],
+    "hot sandwiches": [
+        {
+            "name": "BLT",
+            "ingredients": [
+                "bacon",
+                "leprechaun",
+                "turkey"
+            ],
+            "description": " Warm slices of meat pressed under the orger rock lightly smeared with mayo served with chips and a pickle"
+        },
+        {
+            "name": "Honey Fried ",
+            "ingredients": [
+                "honey comb",
+                "sweet icing",
+                "funnel cake",
+                "candied ginger slices"
+            ],
+            "description": "Handmade funnel cakes topped with slices of honey comb and candied ginger, drizzled with sweet icing."
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Apple Pie",
+            "ingredients": [
+                "bready stuff",
+                "green apples",
+                "cinnamon sprinkles",
+                "sugar",
+                "brown sugar",
+                "powdered sugar",
+                "whipped cream"
+            ],
+            "description": "As American as Canada these green apples are carmalized in sugars before being putted in the bready stuff. Baked to perfection topped with more sugar whipped cream. "
+        },
+        {
+            "name": "Chocolate Lave Cake",
+            "ingredients": [
+                "semi-sweet chocolate pieces",
+                "chocolate cake",
+                "hawaiian lava"
+            ],
+            "description": "Warm chocolate cake filled with semi sweet chocolate pieces, heated to perfection with importated hawaiian lava - caution might be hot"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Mead",
+            "ingredients": [
+                "honey",
+                "fermented liquid",
+                "alcohol"
+            ],
+            "description": "House brewed in a hobbits home a sweet mead from honey and apples"
+        },
+        {
+            "name": "Soda",
+            "ingredients": [
+                "carbinated water",
+                "flavored syrups",
+                "ice"
+            ],
+            "description": "You choose your syrup we add the ice and the carbinated water, you drink to enjoy"
+        }
+    ]
+}
