@@ -1,0 +1,12 @@
+body{
+    background-color: whitesmoke;   
+}
+
+
+.todo-complete {
+    text-decoration: line-through purple;
+}
+
+
+
+
