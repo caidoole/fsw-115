@@ -1,0 +1,30 @@
+body {
+    background-image: url(https://st4.depositphotos.com/4075661/22425/v/600/depositphotos_224256808-stock-video-disco-mirror-ball-colored-mirror.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+p {
+    color: whitesmoke;
+    font-size: 48px;
+}
+
+a {
+    color: whitesmoke;
+    font-size: 36px;
+    margin: 5px;
+}
+
+a:hover {
+    color: limegreen;
+}
+
+img {
+    text-align: center;
+    border: thin solid black;
+    border-radius: 30px;
+    margin-top: 50px;
+}
