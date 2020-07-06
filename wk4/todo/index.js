@@ -1,44 +1,108 @@
-const getTodos = new XMLHttpRequest();
-getTodos.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        let responseData = JSON.parse(getTodos.responseText);
-        console.log("All Todos: ");
-        console.log(responseData);
-    }
-};
+function getTodoData() {
+    axios.get("https://api.vschool.io/caidooley/todo")
+        .then(response => listTodos(response.data))
+        .catch(error => console.log(error))
+}
 
-axios.get("https://api.vschool.io/caidooley/todo")
-    .then(response => {
-        for (let i = 0; i < response.data.length; i++) {
+function listTodos(todos) {
 
-            // Get Todo 
-            const h1 = document.createElement('h1');
-            h1.textContent = response.data[i].title;
+    clearTodos();
 
-            // Get Completion
-            const isComplete = response.data[i].completed ? true : false;
-            if (isComplete) {
-                h1.className = 'todo-complete';
-            }
+    for (let i = 0; i < todos.length; i++) {
 
-            document.body.appendChild(h1);
+        const toDoId = todos[i]._id;
+        const toDoList = document.getElementById('toDoList');
 
-            // Get Image
-            const imageUrl = response.data[i].imgUrl;
-            if (imageUrl && imageUrl !== '' && imageUrl !== ' ') {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                document.body.appendChild(img);
-            } else {
-                const noImage = document.createElement('p');
-                noImage.textContent = "[No Image Found]";
-                document.body.appendChild(noImage);
-            }
+        const h1 = document.createElement('h1');
+        h1.textContent = todos[i].title;
+
+        const completion = document.createElement('input');
+        completion.type = 'checkbox';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+
+        const price = document.createElement('h4');
+        price.textContent = "$" + todos[i].price;
+
+        const description = document.createElement('p');
+        description.textContent = todos[i].description;
+
+        const isComplete = todos[i].completed ? true : false;
+        if (isComplete) {
+            h1.className = 'todo-complete';
+            completion.checked = true;
+        } else {
+            h1.className = 'todo-not-complete'
+            completion.checked = false;
         }
-    })
-    .catch(error => console.log(error))
 
-getTodos.open("GET", "https://api.vschool.io/caidooley/todo", true);
-getTodos.send();
+        completion.addEventListener("click", function (event) {
+            let toDoCompletion = event.target.checked;
+            let updates = { 'completed': toDoCompletion }
+
+            axios.put(`https://api.vschool.io/caidooley/todo/${toDoId}`, updates)
+                .then(response => getTodoData())
+                .catch(error => console.log(error))
+
+        })
+
+        deleteButton.addEventListener("click", function (event) {
+
+            axios.delete(`https://api.vschool.io/caidooley/todo/${toDoId}`)
+                .then(response => getTodoData())
+                .catch(error => console.log(error))
+
+        })
+
+        h1.appendChild(completion);
+        h1.appendChild(deleteButton)
+        toDoList.appendChild(h1);
+        toDoList.appendChild(price);
+        toDoList.appendChild(description);
+
+        const imageUrl = todos[i].imgUrl;
+        if (imageUrl && imageUrl !== '' && imageUrl !== ' ') {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            toDoList.appendChild(img);
+        } else {
+            const noImage = document.createElement('p');
+            noImage.textContent = "[No Image Found]";
+            toDoList.appendChild(noImage);
+        }
+    }
+
+}
+
+function clearTodos() {
+    const toDoList = document.getElementById('toDoList')
+    while (toDoList.firstChild) {
+        toDoList.removeChild(toDoList.firstChild)
+    }
+}
+
+getTodoData();
+
+const todoForm = document.todoForm
+
+todoForm.addEventListener("submit", function (event) {
+    event.preventDefault()
+
+    const newTodo = {
+        title: todoForm.title.value,
+        description: todoForm.description.value,
+        price: todoForm.price.value,
+        imgUrl: todoForm.imgUrl.value
+    }
+    
+    todoForm.title.value = "";
+    todoForm.description.value = "";
+    todoForm.price.value = "";
+    todoForm.imgUrl.value = ""; 
+    axios.post("https://api.vschool.io/caidooley/todo", newTodo)
+        .then(response => getTodoData())
+        .catch(error => console.log(error))
+})
 
 
