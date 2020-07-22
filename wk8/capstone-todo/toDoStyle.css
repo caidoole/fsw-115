@@ -1,0 +1,66 @@
+body {
+    font-family: 'Libre Baskerville', serif;
+    background-color: #d5e2d9;
+}
+
+.header {
+    background-color: #d6c1d4;
+    border: thin solid black;
+    text-align: center;
+    margin: 50px;
+    padding: 30px;
+}
+
+input {
+    padding: 5px;
+    margin: 10px;
+    margin-left: 50px;
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    background-color: #d6c1d4;
+}
+
+input:hover {
+    box-shadow: 4px 5px 7px silver;
+}
+
+.submitButton {
+    border-radius: 5px;
+    background-color: lavender;
+    margin: 10px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.submitButton:hover {
+    box-shadow: 3px 4px 10px silver;
+}
+
+.todo-complete {
+    text-decoration: line-through solid black;
+}
+
+#todoList {
+    border: thin solid black;
+    background-color: #a7c4bf;
+    margin: 45px;
+}
+
+i {
+    padding: 3px;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+p {
+    font-size: 18px;
+    text-transform: capitalize;
+    padding: 15px;
+    margin: 15px;
+}
+
+p:hover {
+    text-decoration: underline black;
+}
